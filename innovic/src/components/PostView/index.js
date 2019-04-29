@@ -5,9 +5,17 @@ import LatestComments from '../LatestComments';
 import Userinfo from '../User-Info';
 import PostDetails from '../PostDetails';
 import PostComments from '../PostComments';
-
+import EditPost from '../EditPost';
 
 export default class PostView extends React.Component {
+
+    state = {
+        isEdit: false
+    }
+    
+    showEditForm = () =>{
+        this.setState({isEdit :true})
+    }
 
     render() {
         const { match: { params } } = this.props;
@@ -20,7 +28,11 @@ export default class PostView extends React.Component {
                             <div className="row">
                                 <div className="col-6">
                                     <Userinfo id={params.postId} />
-                                    <PostDetails id={params.postId} />
+                                    <PostDetails id={params.postId} showForm={this.showEditForm} />
+                                    {this.state.isEdit
+                                        ? <EditPost id ={params.postId} />
+                                        : <h1></h1>
+                                    }
                                 </div>
                                 <div className="col-6">
                                     <PostComments id={params.postId} />
