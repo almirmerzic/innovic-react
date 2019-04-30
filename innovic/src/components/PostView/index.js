@@ -13,9 +13,9 @@ export default class PostView extends React.Component {
     state = {
         isEdit: false
     }
-    
-    showEditForm = () =>{
-        this.setState({isEdit :true})
+
+    showEditForm = () => {
+        this.setState({ isEdit: true })
     }
 
     render() {
@@ -31,7 +31,7 @@ export default class PostView extends React.Component {
                                     <Userinfo id={params.postId} />
                                     <PostDetails id={params.postId} showForm={this.showEditForm} />
                                     {this.state.isEdit
-                                        ? <EditPost id ={params.postId} />
+                                        ? <EditPost id={params.postId} />
                                         : <Error />
                                     }
                                 </div>

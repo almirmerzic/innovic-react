@@ -4,26 +4,32 @@ import axios from 'axios';
 export default class EditPost extends React.Component {
 
     state = {
-        post: {}
+        title: '',
+        description: ''
     }
 
     componentDidMount() {
         axios.get(`https://jsonplaceholder.typicode.com/posts/` + this.props.id)
             .then(res => {
-                const post = res.data;
-                this.setState({ post });
+                console.log(res);
+                this.setState({ title: res.data.title, description: res.data.body });
             })
     }
 
-    updateState = (e) => {
-        console.log(e.target.value);
+    updateTitle = (e) => {
+        this.setState({ title: e.target.value });
     };
 
-    // axios.put(`https://jsonplaceholder.typicode.com/posts/` + this.props.id)
-    //     .then(res => {
-    //         const post = res.data;
-    //        this.setState({ post});
-    //     })
+    updateDescription = (e) => {
+        this.setState({ description: e.target.value });
+    };
+
+    editPost = () => {
+        axios.put(`https://jsonplaceholder.typicode.com/posts/` + this.props.id, {
+            title: this.state.title,
+            body:this.state.description
+        });
+    };
 
     render() {
         return (
@@ -34,13 +40,13 @@ export default class EditPost extends React.Component {
                         <form>
                             <div className="form-group">
                                 <label>Title</label>
-                                <input type="text" className="form-control" value={this.state.post.title || ''} onChange={this.updateState} />
+                                <input type="text" className="form-control" value={this.state.title || ''} onChange={this.updateTitle} />
                             </div>
                             <div className="form-group">
                                 <label>Description</label>
-                                <input type="text" className="form-control" value={this.state.post.body || ''} onChange={this.updateState} />
+                                <input type="text" className="form-control" value={this.state.description || ''} onChange={this.updateDescription} />
                             </div>
-                            <button type="submit" className="btn btn-outline-secondary btn-block">Submit</button>
+                            <button type="button" className="btn btn-outline-secondary btn-block" onClick={this.editPost}><i className="fas fa-save"></i> Update</button>
                         </form>
                     </div>
                 </div>
