@@ -46,7 +46,7 @@ export default class EditPost extends React.Component {
                                 <label>Description</label>
                                 <input type="text" className="form-control" value={this.state.description || ''} onChange={this.updateDescription} />
                             </div>
-                            <button type="button" className="btn btn-outline-secondary btn-block" onClick={this.editPost}><i className="fas fa-save"></i> Update</button>
+                            <button type="button" className="btn btn-outline-success btn-block" onClick={this.editPost}><i className="fas fa-save"></i> Update</button>
                         </form>
                     </div>
                 </div>
