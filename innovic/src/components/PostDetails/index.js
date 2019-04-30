@@ -22,7 +22,7 @@ export default class PostDetails extends React.Component {
                     <div className="card-body">
                         <p className="card-text"><b>Title: </b> {this.state.posts.title}</p>
                         <p className="card-text"><b>Description: </b> {this.state.posts.body}</p>
-                        <button type="button" className="btn btn-outline-secondary btn-block" onClick={this.props.showForm} >Edit</button>
+                        <button type="button" className="btn btn-outline-secondary btn-block" onClick={this.props.showForm} > Edit</button>
                     </div>
                 </div>
             </div>
