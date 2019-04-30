@@ -11,14 +11,19 @@ export default class EditPost extends React.Component {
         axios.get(`https://jsonplaceholder.typicode.com/posts/` + this.props.id)
             .then(res => {
                 const post = res.data;
-                this.setState({ post});
+                this.setState({ post });
             })
     }
 
-    updateState(e) {
-        
-        
-     }
+    updateState = (e) => {
+        console.log(e.target.value);
+    };
+
+    // axios.put(`https://jsonplaceholder.typicode.com/posts/` + this.props.id)
+    //     .then(res => {
+    //         const post = res.data;
+    //        this.setState({ post});
+    //     })
 
     render() {
         return (
@@ -29,11 +34,11 @@ export default class EditPost extends React.Component {
                         <form>
                             <div className="form-group">
                                 <label>Title</label>
-                                <input type="text" className="form-control" value={this.state.post.title || ''} onChange = {this.updateState} />
+                                <input type="text" className="form-control" value={this.state.post.title || ''} onChange={this.updateState} />
                             </div>
                             <div className="form-group">
                                 <label>Description</label>
-                                <input type="text" className="form-control" value={this.state.post.body || ''} onChange = {this.updateState} />
+                                <input type="text" className="form-control" value={this.state.post.body || ''} onChange={this.updateState} />
                             </div>
                             <button type="submit" className="btn btn-outline-secondary btn-block">Submit</button>
                         </form>
