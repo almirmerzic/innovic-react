@@ -8,7 +8,7 @@ export default function Home() {
             <Navbar />
             <div className="jumbotron jumbotron-fluid mt-5">
                 <div className="container">
-                    <h1 className="display-4">Innovic Test app</h1>
+                    <h1 className="display-4">React Test app</h1>
                     <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
                 </div>
             </div>

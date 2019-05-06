@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="container">
             </div>
             <div className="footer-copyright text-center py-3">© 2019 Copyright:
-              <a href="https://innovic.io">INNOVIC</a>
+              <a href="www.google.ba">Company name</a>
             </div>
         </footer>
     );
