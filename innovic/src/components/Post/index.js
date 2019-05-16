@@ -9,12 +9,12 @@ export default class Post extends React.Component {
 
     componentDidMount() {
         axios.get(`https://jsonplaceholder.typicode.com/posts`)
-          .then(res => {
-            const posts = res.data;
-            this.setState({ posts });
-          })
-      }
-
+            .then(res => {
+                const posts = res.data;
+                this.setState({ posts });
+            })
+    }
+    
     render() {
         return (
             <div className="card mt-5">
@@ -25,12 +25,13 @@ export default class Post extends React.Component {
                             <tr>
                                 <th scope="col">Title</th>
                                 <th scope="col">Description</th>
+                                <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.state.posts.map((post, i) =>
                                 <Posts key={i}
-                                    id = {post.id}
+                                    id={post.id}
                                     title={post.title}
                                     description={post.body}
                                 />)}

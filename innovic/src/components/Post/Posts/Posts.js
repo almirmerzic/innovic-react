@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Post = ({id, title, description}) => {
+const Posts = ({id, title, description}) => {
     return (
         <tr>
             <td><Link to={`/posts/${id}`}>{title}</Link></td>
@@ -10,4 +10,4 @@ const Post = ({id, title, description}) => {
     );
 }
 
-export default Post;
+export default Posts;
